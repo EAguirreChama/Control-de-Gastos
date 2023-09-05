@@ -1,8 +1,9 @@
 <script setup>
     import { computed } from 'vue';
+    import { formatearCantidad } from '../helpers'
+
     import CircleProgress from 'vue3-circle-progress'
     import "vue3-circle-progress/dist/circle-progress.css"
-    import { formatearCantidad } from '../helpers'
 
     defineEmits(['reset-app'])
 
@@ -59,7 +60,6 @@
     </div>
 </template>
 
-
 <style scoped>
     .contenedor-grafico {
         position: relative;
@@ -84,7 +84,6 @@
     .dos-columnas > :first-child {
         margin-bottom: 3rem;
     }
-
     @media (min-width: 768px) {
         .dos-columnas {
             flex-direction: row;
@@ -95,7 +94,6 @@
         margin-bottom: 0;
         }
     }
-    
     .reset-app {
         background-color: #DB2777;
         border: none;
@@ -112,11 +110,9 @@
         cursor: pointer;
         background-color: #c11d67;
     }
-
     .contenedor-presupuesto {
         width: 100%;
     }
-
     .contenedor-presupuesto p {
         font-size: 2.4rem;
         text-align: center;
@@ -127,7 +123,6 @@
             text-align: left;
         }
     }
-
     .contenedor-presupuesto span {
         font-weight: 900;
         color: var(--azul);
