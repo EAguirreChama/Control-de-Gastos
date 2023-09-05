@@ -6,6 +6,7 @@
       const error = ref('')
 
       const emit = defineEmits(['ocultar-modal', 'guardar-gasto', 'update:nombre', 'update:cantidad', 'update:categoria', 'eliminar-gasto'])
+      
       const props = defineProps({
         modal: {
             type: Object,
@@ -41,6 +42,7 @@
 
       const agregarGasto = () => {
         const { nombre, cantidad, categoria, disponible, id} = props
+
         if([nombre, cantidad, categoria].includes('')){
             error.value = 'Todos los campos son obligatorios'
             setTimeout(() => {
@@ -48,6 +50,7 @@
             }, 3000);
             return 
         }
+
         // Validar cantidad
         if(cantidad <= 0) {
             error.value = 'Cantidad no válida'

@@ -1,4 +1,5 @@
 <script setup>
+
     import { ref } from 'vue';
     import Alerta from './Alerta.vue'
 
@@ -20,14 +21,13 @@
 
         emit('definir-presupuesto', presupuesto.value)
     }
+
 </script>
 
 <template>
     <form class="presupuesto" @submit.prevent="definirPresupuesto">
 
-        <Alerta v-if="error">
-            {{ error }}
-        </Alerta>
+        <Alerta v-if="error"> {{ error }} </Alerta>
 
         <div class="campo">
             <label for="nuevo-presupuesto">Definir Presupuestos</label>

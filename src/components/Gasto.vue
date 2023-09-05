@@ -1,6 +1,7 @@
 <script setup>
 
     import { formatearCantidad, formatearFecha } from '../helpers/index'
+    
     import IconoAhorro from '../assets/img/icono_ahorro.svg'
     import IconoCasa from '../assets/img/icono_casa.svg'
     import IconoComida from '../assets/img/icono_comida.svg'
