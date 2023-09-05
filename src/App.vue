@@ -139,9 +139,8 @@
 </script>
 
 <template>
-  <div
-    :class="{fijar: modal.mostrar}"
-  >
+  <div :class="{fijar: modal.mostrar}">
+
     <header>
       <h1>Planificador de Gastos</h1>
 
@@ -161,11 +160,12 @@
     </header>
 
     <main v-if="presupuesto > 0">
-      <Filtros
-        v-model:filtro="filtro"
-      />
+      <Filtros v-model:filtro="filtro"/>
+
       <div class="listado-gastos contenedor">
+
         <h2>{{ gastosFiltrados.length > 0 ? 'Gastos' : 'No hay gastos aún' }}</h2>
+
         <Gasto
           v-for="gasto in gastosFiltrados"
           :key="gasto.id"
