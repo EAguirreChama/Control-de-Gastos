@@ -1,7 +1,6 @@
 <script setup>
     import { computed } from 'vue';
     import { formatearCantidad } from '../helpers'
-
     import CircleProgress from 'vue3-circle-progress'
     import "vue3-circle-progress/dist/circle-progress.css"
 
@@ -25,7 +24,6 @@
     const porcentaje = computed(() => {
         return parseInt(((props.presupuesto - props.disponible) / props.presupuesto) * 100)
     })
-
 </script>
 
 <template>
