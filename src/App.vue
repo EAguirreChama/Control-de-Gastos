@@ -57,7 +57,7 @@
     if(presupuestoStorage) {
       presupuesto.value = Number(presupuestoStorage)
       disponible.value = Number(presupuestoStorage)
-    }
+    };
 
     const gastosStorage = localStorage.getItem('gastos')
     if(gastosStorage) {
@@ -73,26 +73,26 @@
       id: null,
       fecha: Date.now()
     })
-  }
+  };
 
   const definirPresupuesto = (cantidad) => {
     presupuesto.value = cantidad
     disponible.value = cantidad
-  }
+  };
   
   const mostrarModal = () => {
     modal.mostrar = true
     setTimeout(() => {
       modal.animar = true
     }, 300);
-  }
+  };
 
   const ocultarModal = () => {
     modal.animar = false
     setTimeout(() => {
       modal.mostrar = false
     }, 300);
-  }
+  };
 
   const guardarGasto = () => {
     if (gasto.id) {
@@ -107,20 +107,20 @@
     }
     ocultarModal()
     reiniciarStateGasto()
-  }
+  };
 
   const seleccionarGasto = (id) => {
     const gastoEditar = gastos.value.filter(gasto => gasto.id === id)[0]
     Object.assign(gasto, gastoEditar);
     mostrarModal()
-  }
+  };
 
   const eliminarGasto = () => {
     if(confirm('Eliminar')) {
       gastos.value = gastos.value.filter(gastoState => gastoState.id !== gasto.id)
       ocultarModal()
     }
-  }
+  };
 
   const gastosFiltrados = computed(() => {
     if(filtro.value) {
@@ -134,8 +134,7 @@
       gastos.value = []
       presupuesto.value = 0
     }
-  }
-
+  };
 </script>
 
 <template>
