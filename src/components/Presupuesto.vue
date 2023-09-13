@@ -1,5 +1,4 @@
 <script setup>
-
     import { ref } from 'vue';
     import Alerta from './Alerta.vue'
 
@@ -18,10 +17,8 @@
 
             return
         }
-
         emit('definir-presupuesto', presupuesto.value)
     }
-
 </script>
 
 <template>
