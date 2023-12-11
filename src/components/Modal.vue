@@ -1,14 +1,13 @@
 <script setup>
-      import cerrarModal from '../assets/img/cerrar.svg'
-      import { computed, ref } from 'vue';
-      import Alerta from './Alerta.vue';
+import cerrarModal from '../assets/img/cerrar.svg'    
+import { computed, ref } from 'vue';
+import Alerta from './Alerta.vue';
 
-      const error = ref('')
-
-      const emit = defineEmits(['ocultar-modal', 'guardar-gasto', 'update:nombre', 'update:cantidad', 'update:categoria', 'eliminar-gasto'])
+const error = ref('')
+const emit = defineEmits(['ocultar-modal', 'guardar-gasto', 'update:nombre', 'update:cantidad', 'update:categoria', 'eliminar-gasto'])
       
-      const props = defineProps({
-        modal: {
+const props = defineProps({
+      modal: {
             type: Object,
             required: true
         },
@@ -34,33 +33,33 @@
         }
       })
 
-      const isEditing = computed(() => {
+const isEditing = computed(() => {
         return props.id
       })
 
-      const old = props.cantidad
+const old = props.cantidad
 
-      const agregarGasto = () => {
-        const { nombre, cantidad, categoria, disponible, id} = props
+const agregarGasto = () => {
+      const { nombre, cantidad, categoria, disponible, id} = props
 
-        if([nombre, cantidad, categoria].includes('')){
-            error.value = 'Todos los campos son obligatorios'
+      if([nombre, cantidad, categoria].includes('')){
+      error.value = 'Todos los campos son obligatorios'
             setTimeout(() => {
                 error.value = ''
             }, 3000);
             return 
-        }
+      }
 
-        // Validar cantidad
-        if(cantidad <= 0) {
+// Validar cantidad
+      if(cantidad <= 0) {
             error.value = 'Cantidad no válida'
             setTimeout(() => {
                 error.value = ''
             }, 3000);
             return
-        }
+      }
 
-        if(id) {
+      if(id) {
             if(cantidad > old + disponible) {
                 error.value = 'Has excedido el presupuesto'
                 setTimeout(() => {
@@ -68,8 +67,8 @@
                 }, 3000);
                 return
             }
-        } else {
-            // Validar que no se gaste más de lo disponible
+      } else {
+      // Validar que no se gaste más de lo disponible
             if(cantidad > disponible) {
                 error.value = 'Has excedido el presupuesto'
                 setTimeout(() => {
@@ -77,20 +76,15 @@
                 }, 3000);
                 return
             }
-        }
-
+      }
         emit('guardar-gasto')
       }
-
 </script>
 
 <template>
     <div class="modal">
         <div class="cerrar-modal">
-            <img 
-                :src="cerrarModal"
-                @click="$emit('ocultar-modal')"
-            />
+            <img :src="cerrarModal" @click="$emit('ocultar-modal')"/>
         </div>
 
         <div class="contenedor contenedor-formulario" :class="[modal.animar ? 'animar' : 'cerrar']">
@@ -109,6 +103,7 @@
                         @input="$emit('update:nombre', $event.target.value)"
                     />
                 </div>
+                  
                 <div class="campo">
                     <label for="cantidad">Cantidad:</label>
                     <input 
@@ -119,6 +114,7 @@
                         @input="$emit('update:cantidad', +$event.target.value)"
                     />
                 </div>
+                  
                 <div class="campo">
                     <label for="categoria">Categoría:</label>
                     <select id="categoria" :value="categoria" @input="$emit('update:categoria', $event.target.value)">
@@ -153,77 +149,77 @@
 
 
 <style scoped>
-    .modal {
-        position: absolute;
-        background-color: rgb(0 0 0 / 0.9);
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-    .cerrar-modal {
-        position: absolute;
-        right: 3rem;
-        top: 3rem;
-    }
-    .cerrar-modal img {
-        width: 3rem;
-        cursor: pointer;
-    }
-    .contenedor-formulario {
-        transition-property: all;
-        transition-duration: 300ms;
-        transition-timing-function: ease-in;
-        opacity: 0;
-    }
-    .contenedor-formulario.animar {
-        opacity: 1;
-    }.contenedor-formulario.cerrar {
-        opacity: 0;
-    }
-    .nuevo-gasto {
-        margin: 10rem auto 0 auto;
-        display: grid;
-        gap: 2rem;
-    }
-    .nuevo-gasto legend {
-        text-align: center;
-        color: var(--blanco);
-        font-size: 3rem;
-        font-weight: 700;
-    }
-    .nuevo-gasto input,
-    .nuevo-gasto select {
-        background-color: var(--gris-claro);
-        border-radius: 1rem;
-        padding: 1rem;
-        border: none;
-        font-size: 2.2rem;
-    }
-    .nuevo-gasto label {
-        color: var(--blanco);
-        font-size: 3rem;
-    }
-    .nuevo-gasto input[type="submit"] {
-        background-color: var(--azul);
-        color: var(--blanco);
-        font-weight: 700;
-        cursor: pointer;
-    }
-    .campo {
-        display: grid;
-        gap: 2rem;
-    }
-    .btn-eliminar {
-        border: none;
-        padding: 1rem;
-        width: 100%;
-        background-color: #ef4444;
-        font-weight: 700;
-        font-size: 2.2rem;
-        color: var(--blanco);
-        margin-top: 10rem;
-        cursor: pointer;
-        border-radius: 1rem;
+.modal {
+      position: absolute;
+      background-color: rgb(0 0 0 / 0.9);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+}
+.cerrar-modal {
+      position: absolute;
+      right: 3rem;
+      top: 3rem;
+}
+.cerrar-modal img {
+      width: 3rem;
+      cursor: pointer;
+}
+.contenedor-formulario {
+      transition-property: all;
+      transition-duration: 300ms;
+      transition-timing-function: ease-in;
+      opacity: 0;
+}
+.contenedor-formulario.animar {
+      opacity: 1;
+}.contenedor-formulario.cerrar {
+      opacity: 0;
+}
+.nuevo-gasto {
+      margin: 10rem auto 0 auto;
+      display: grid;
+      gap: 2rem;
+}
+.nuevo-gasto legend {
+      text-align: center;
+      color: var(--blanco);
+      font-size: 3rem;
+      font-weight: 700;
+}
+.nuevo-gasto input,
+.nuevo-gasto select {
+      background-color: var(--gris-claro);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: none;
+      font-size: 2.2rem;
+}
+.nuevo-gasto label {
+      color: var(--blanco);
+      font-size: 3rem;
+}
+.nuevo-gasto input[type="submit"] {
+      background-color: var(--azul);
+      color: var(--blanco);
+      font-weight: 700;
+      cursor: pointer;
+}
+.campo {
+      display: grid;
+      gap: 2rem;
+}
+.btn-eliminar {
+      border: none;
+      padding: 1rem;
+      width: 100%;
+      background-color: #ef4444;
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: var(--blanco);
+      margin-top: 10rem;
+      cursor: pointer;
+      border-radius: 1rem;
     }
 </style>
