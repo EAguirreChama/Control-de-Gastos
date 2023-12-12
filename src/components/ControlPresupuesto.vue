@@ -1,3 +1,4 @@
+<!-- Componente de Control de Presupuesto -->
 <script setup>
     import { computed } from 'vue';
     import { formatearCantidad } from '../helpers'
@@ -28,6 +29,7 @@
 
 <template>
     <div class="dos-columnas">
+
         <div class="contenedor-grafico">
             <p class="porcentaje">{{ porcentaje }}%</p>
 
@@ -40,6 +42,7 @@
                 empty-color="#e1e1e1"
             />
         </div>
+
         <div class="contenedor-presupuesto">
             <button class="reset-app" type="button" @click="$emit('reset-app')">Resetear App</button>
             <p>
@@ -55,6 +58,7 @@
                 {{ formatearCantidad (gastado) }}
             </p>
         </div>
+
     </div>
 </template>
 
