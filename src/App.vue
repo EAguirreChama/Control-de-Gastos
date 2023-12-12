@@ -11,6 +11,7 @@
 
   import iconoNuevoGasto from './assets/img/nuevo-gasto.svg'
   
+  // State de Presupuesto
   const presupuesto = ref(0)
   const disponible = ref(0)
   const gastado = ref(0)
@@ -75,6 +76,7 @@
     })
   };
 
+  // Función para definir un presupuesto
   const definirPresupuesto = (cantidad) => {
     presupuesto.value = cantidad
     disponible.value = cantidad
@@ -146,10 +148,12 @@
       <h1>Planificador de Gastos</h1>
 
       <div class="contenedor-header contenedor sombra">
+        
         <Presupuesto
           v-if="presupuesto === 0"
           @definir-presupuesto="definirPresupuesto"
         />
+
         <ControlPresupuesto
           v-else
           :presupuesto="presupuesto"
@@ -157,6 +161,7 @@
           :gastado="gastado"
           @reset-app="resetApp"
         />
+
       </div>
     </header>
 

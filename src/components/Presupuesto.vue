@@ -10,6 +10,7 @@
     // State de Error. Inicia vacío
     const error = ref('')
 
+    // Viene de App.vue
     const emit = defineEmits(['definir-presupuesto'])
 
     // Validación
@@ -23,7 +24,7 @@
 
             return
         }
-        emit('definir-presupuesto', presupuesto.value)
+        emit('definir-presupuesto', presupuesto.value) //Se le pasa la cantidad al app.vue
     }
 </script>
 
