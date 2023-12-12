@@ -1,10 +1,13 @@
 <!-- Componente Presupuesto -->
 <script setup>
     import { ref } from 'vue'
+
+    // Componente Alerta
     import Alerta from './Alerta.vue'
 
     // State de Presupuesto. Inicia en 0
     const presupuesto = ref(0)
+    // State de Error. Inicia vacío
     const error = ref('')
 
     const emit = defineEmits(['definir-presupuesto'])
@@ -27,6 +30,8 @@
 <template>
     <form class="presupuesto" @submit.prevent="definirPresupuesto">
 
+        <!-- Renderizado el componente Alerta -->
+        <!-- Es con slot -->
         <Alerta v-if="error"> {{ error }} </Alerta>
 
         <div class="campo">

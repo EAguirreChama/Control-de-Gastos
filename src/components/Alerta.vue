@@ -1,3 +1,4 @@
+<!-- Componente Alerta -->
 <template>
     <div class="alerta">
         <slot></slot>
