@@ -3,11 +3,13 @@
     import { ref } from 'vue'
     import Alerta from './Alerta.vue'
 
+    // State de Presupuesto. Inicia en 0
     const presupuesto = ref(0)
     const error = ref('')
 
     const emit = defineEmits(['definir-presupuesto'])
 
+    // Validación
     const definirPresupuesto = () => {
         if(presupuesto.value <= 0 || presupuesto.value === '') {
             error.value = 'Presupuesto no válido'
