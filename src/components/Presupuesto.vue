@@ -1,6 +1,6 @@
 <!-- Componente Presupuesto -->
 <script setup>
-    import { ref } from 'vue';
+    import { ref } from 'vue'
     import Alerta from './Alerta.vue'
 
     const presupuesto = ref(0)
@@ -57,6 +57,8 @@
         text-align: center;
         color: var(--azul);
     }
+
+    /* Para el de tipo number */
     .presupuesto input[type="number"] {
         background-color: var(--gris-claro);
         border-radius: 1rem;
@@ -65,6 +67,8 @@
         font-size: 2.2rem;
         text-align: center;
     }
+
+    /* Para el de tipo submit */
     .presupuesto input[type="submit"] {
         background-color: var(--azul);
         border: none;
