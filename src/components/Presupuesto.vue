@@ -1,3 +1,4 @@
+<!-- Componente Presupuesto -->
 <script setup>
     import { ref } from 'vue';
     import Alerta from './Alerta.vue'

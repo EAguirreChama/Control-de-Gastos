@@ -252,6 +252,7 @@
     text-align: center;
   }
 
+  /* Para todos los contenedores */
   .contenedor {
     width: 90%;
     max-width: 80rem;
