@@ -200,8 +200,9 @@
   </div>
 </template>
 
-
+<!-- Estilos que se aplican en todos los componentes -->
 <style>
+  /* CustomProperties */
   :root {
     --azul: #3b82f6;
     --blanco: #FFF;
