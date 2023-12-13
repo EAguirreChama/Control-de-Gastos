@@ -78,11 +78,12 @@
         font-weight: 900;
         color: var(--gris-oscuro);
     }
+
+    /* Estilos de columnas */
     .dos-columnas {
         display: flex;
         flex-direction: column;
     }
-
     .dos-columnas > :first-child {
         margin-bottom: 3rem;
     }
@@ -96,6 +97,8 @@
         margin-bottom: 0;
         }
     }
+
+    /* Estilos para boton de reset */
     .reset-app {
         background-color: #DB2777;
         border: none;
@@ -112,6 +115,7 @@
         cursor: pointer;
         background-color: #c11d67;
     }
+
     .contenedor-presupuesto {
         width: 100%;
     }
