@@ -13,7 +13,10 @@
   
   // State de Presupuesto
   const presupuesto = ref(0)
+
+  // State de lo que hay disponible
   const disponible = ref(0)
+  
   const gastado = ref(0)
   const gastos = ref([])
   const filtro = ref('')

@@ -7,6 +7,7 @@
 
     defineEmits(['reset-app'])
 
+    // Esto son los state que viene desde app
     const props = defineProps({
         presupuesto: {
             type: Number,
