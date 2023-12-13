@@ -1,7 +1,10 @@
 <!-- Componente de Control de Presupuesto -->
 <script setup>
     import { computed } from 'vue';
+
+    // Helper
     import { formatearCantidad } from '../helpers'
+    
     import CircleProgress from 'vue3-circle-progress'
     import "vue3-circle-progress/dist/circle-progress.css"
 
