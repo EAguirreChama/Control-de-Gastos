@@ -1,3 +1,4 @@
+<!-- Componente Modal -->
 <script setup>
 import cerrarModal from '../assets/img/cerrar.svg'    
 import { computed, ref } from 'vue';

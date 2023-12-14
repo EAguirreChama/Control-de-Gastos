@@ -1,12 +1,14 @@
 <script setup>
   import { ref, reactive, watch, computed, onMounted} from 'vue';
 
+  // Componentes
   import Presupuesto from './components/Presupuesto.vue'
   import ControlPresupuesto from './components/ControlPresupuesto.vue';
   import Modal from './components/Modal.vue'
   import Gasto from './components/Gasto.vue'
   import Filtros from './components/Filtros.vue';
 
+  // Helpers
   import { generarId } from './helpers/index'
 
   // Imagen
@@ -14,6 +16,11 @@
   
   // State de Presupuesto
   const presupuesto = ref(0)
+  // Función para definir un presupuesto
+  const definirPresupuesto = (cantidad) => {
+    presupuesto.value = cantidad
+    disponible.value = cantidad
+  }
 
   // State de lo que hay disponible
   const disponible = ref(0)
@@ -21,11 +28,19 @@
   const gastado = ref(0)
   const gastos = ref([])
   const filtro = ref('')
-
+  
+  // State modal
   const modal = reactive({
     mostrar: false,
     animar: false
   })
+  // Función para modal
+  const mostrarModal = () => {
+    modal.mostrar = true
+    setTimeout(() => {
+      modal.animar = true
+    }, 300);
+  };
 
   const gasto = reactive({
     nombre: '',
@@ -78,19 +93,6 @@
       id: null,
       fecha: Date.now()
     })
-  };
-
-  // Función para definir un presupuesto
-  const definirPresupuesto = (cantidad) => {
-    presupuesto.value = cantidad
-    disponible.value = cantidad
-  };
-  
-  const mostrarModal = () => {
-    modal.mostrar = true
-    setTimeout(() => {
-      modal.animar = true
-    }, 300);
   };
 
   const ocultarModal = () => {
@@ -292,7 +294,7 @@
     cursor: pointer;
   }
 
-  
+
   .listado-gastos {
     margin-top: 10rem;
   }
