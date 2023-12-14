@@ -9,6 +9,7 @@
 
   import { generarId } from './helpers/index'
 
+  // Imagen
   import iconoNuevoGasto from './assets/img/nuevo-gasto.svg'
   
   // State de Presupuesto
@@ -16,7 +17,7 @@
 
   // State de lo que hay disponible
   const disponible = ref(0)
-  
+
   const gastado = ref(0)
   const gastos = ref([])
   const filtro = ref('')
@@ -280,17 +281,18 @@
     padding: 5rem;
   }
 
+  /* Estilos para la imagen de crear gasto */
   .crear-gasto {
     position: fixed;
     bottom: 5rem;
     right: 5rem;
   }
-
   .crear-gasto img {
     width: 5rem;
     cursor: pointer;
   }
 
+  
   .listado-gastos {
     margin-top: 10rem;
   }
